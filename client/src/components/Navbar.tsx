@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dumbbell, Menu, X, User as UserIcon, LogOut, ShieldAlert } from 'lucide-react';
+import { Menu, X, User as UserIcon, LogOut, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 interface NavbarProps {
@@ -9,7 +9,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user, openAuthModal, openTrialModal, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const navLinks = [
     { label: 'Facility', href: '#facility' },
@@ -55,11 +55,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) 
             ))}
           </div>
 
-          {/* Actions: User Auth & Join Now CTA */}
+          {/* Logged in User Portal (if authenticated) */}
           <div className="hidden md:flex items-center gap-4">
-            {user ? (
+            {user && (
               <div className="flex items-center gap-3">
-                {user.role === 'admin' ? (
+                {user.role === 'admin' && (
                   <button
                     onClick={onOpenAdmin}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600/20 text-purple-400 border border-purple-500/30 text-xs font-semibold hover:bg-purple-600/30"
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) 
                     <ShieldAlert className="w-4 h-4" />
                     Admin Panel
                   </button>
-                ) : null}
+                )}
                 <button
                   onClick={onOpenDashboard}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gymCard border border-gymBorder text-white text-sm font-semibold hover:border-amberPrimary transition-all"
@@ -83,24 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) 
                   <LogOut className="w-4 h-4" />
                 </button>
               </div>
-            ) : (
-              <button
-                onClick={() => openAuthModal('login')}
-                className="text-textPrimary hover:text-amberPrimary font-subheading text-sm font-semibold px-3 py-2"
-              >
-                Member Sign In
-              </button>
             )}
-
-            <button
-              onClick={() => openTrialModal()}
-              className="relative group overflow-hidden rounded-lg bg-amberPrimary px-6 py-2.5 font-subheading font-bold text-sm text-white shadow-glow-amber hover:bg-amber-600 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                JOIN NOW
-              </span>
-              <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            </button>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -132,62 +115,40 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) 
             ))}
           </div>
 
-          <div className="pt-2 flex flex-col gap-3">
-            {user ? (
-              <div className="flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenDashboard();
-                  }}
-                  className="w-full text-center py-2.5 rounded-lg bg-gymDark border border-gymBorder text-white font-semibold text-sm flex items-center justify-center gap-2"
-                >
-                  <UserIcon className="w-4 h-4 text-amberPrimary" />
-                  My Member Portal ({user.fullName})
-                </button>
-                {user.role === 'admin' && (
-                  <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onOpenAdmin();
-                    }}
-                    className="w-full text-center py-2.5 rounded-lg bg-purple-900/30 text-purple-300 border border-purple-500/30 font-semibold text-sm"
-                  >
-                    Admin Dashboard
-                  </button>
-                )}
-                <button
-                  onClick={() => {
-                    logout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full text-center py-2 text-red-400 text-sm font-semibold"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
+          {user && (
+            <div className="pt-2 flex flex-col gap-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  openAuthModal('login');
+                  onOpenDashboard();
                 }}
-                className="w-full text-center py-2.5 rounded-lg bg-gymDark border border-gymBorder text-white font-semibold text-sm"
+                className="w-full text-center py-2.5 rounded-lg bg-gymDark border border-gymBorder text-white font-semibold text-sm flex items-center justify-center gap-2"
               >
-                Member Sign In
+                <UserIcon className="w-4 h-4 text-amberPrimary" />
+                My Member Portal ({user.fullName})
               </button>
-            )}
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openTrialModal();
-              }}
-              className="w-full py-3 rounded-lg bg-amberPrimary font-subheading font-bold text-white shadow-glow-amber text-center"
-            >
-              JOIN NOW - CLAIM FREE TRIAL
-            </button>
-          </div>
+              {user.role === 'admin' && (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenAdmin();
+                  }}
+                  className="w-full text-center py-2.5 rounded-lg bg-purple-900/30 text-purple-300 border border-purple-500/30 font-semibold text-sm"
+                >
+                  Admin Dashboard
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  logout();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full text-center py-2 text-red-400 text-sm font-semibold"
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
         </div>
       )}
     </nav>
