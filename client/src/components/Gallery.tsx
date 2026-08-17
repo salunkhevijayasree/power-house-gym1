@@ -5,8 +5,6 @@ export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [lightboxImage, setLightboxImage] = useState<any | null>(null);
 
-  const reelEmbedUrl = "https://www.instagram.com/p/DR9i4gpE-Fx/embed";
-
   const galleryItems = [
     {
       id: 1,
@@ -85,43 +83,14 @@ export const Gallery: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-block px-3.5 py-1 rounded-full bg-amberPrimary/10 border border-amberPrimary/30 text-amberPrimary text-xs font-subheading font-bold uppercase tracking-wider mb-3">
-            INSIDE POWER HOUSE GYM
+            ACTUAL FACILITY GALLERY
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
-            FACILITY <span className="text-amberPrimary">VIDEO & GALLERY</span>
+            INSIDE <span className="text-amberPrimary">POWER HOUSE GYM</span>
           </h2>
           <p className="font-body text-textMuted text-base sm:text-lg mt-3">
-            Watch our official gym video tour & explore 9 authentic facility photos in Bhadrachalam.
+            Explore 9 authentic photographs of our 2,000 sq. ft. modern facility on Charla Rd, Korrajula Gutta, Bhadrachalam.
           </p>
-        </div>
-
-        {/* Clean Centered Video Player Container */}
-        <div className="mb-16 max-w-2xl mx-auto">
-          <div className="gym-card rounded-3xl p-4 sm:p-6 border border-amberPrimary/40 shadow-glow-amber bg-[#12141A] flex flex-col items-center">
-            
-            <div className="text-center mb-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberPrimary/15 text-amberPrimary text-xs font-subheading font-bold uppercase tracking-widest mb-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>OFFICIAL WORKOUT TOUR VIDEO</span>
-              </div>
-              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white uppercase">
-                INSIDE <span className="text-amberPrimary">POWER HOUSE GYM</span>
-              </h3>
-            </div>
-
-            {/* Video Player Frame */}
-            <div className="w-full max-w-[420px] h-[580px] sm:h-[620px] rounded-2xl overflow-hidden border border-gymBorder bg-black shadow-2xl relative">
-              <iframe
-                src={reelEmbedUrl}
-                title="POWERHOUSE GYM Bhadrachalam Gym Video Tour"
-                className="w-full h-full border-0 rounded-2xl"
-                allowTransparency={true}
-                allow="encrypted-media"
-                scrolling="no"
-              />
-            </div>
-
-          </div>
         </div>
 
         {/* Category Filters */}
