@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Maximize2, X, Sparkles } from 'lucide-react';
+import { Maximize2, X, Sparkles, Instagram, ExternalLink, Play } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [lightboxImage, setLightboxImage] = useState<any | null>(null);
+
+  const reelUrl = "https://www.instagram.com/reel/DR9i4gpE-Fx/?igsh=MWFveWVsbWc0ZXB1OQ==";
+  const reelEmbedUrl = "https://www.instagram.com/p/DR9i4gpE-Fx/embed";
 
   const galleryItems = [
     {
@@ -83,14 +86,73 @@ export const Gallery: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-block px-3.5 py-1 rounded-full bg-amberPrimary/10 border border-amberPrimary/30 text-amberPrimary text-xs font-subheading font-bold uppercase tracking-wider mb-3">
-            ACTUAL FACILITY GALLERY
+            ACTUAL FACILITY TOUR & GALLERY
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
             INSIDE <span className="text-amberPrimary">POWER HOUSE GYM</span>
           </h2>
           <p className="font-body text-textMuted text-base sm:text-lg mt-3">
-            Explore 9 authentic photographs of our 2,000 sq. ft. modern facility on Charla Rd, Korrajula Gutta, Bhadrachalam.
+            Explore our video tour & 9 authentic facility photos on Charla Rd, Korrajula Gutta, Bhadrachalam.
           </p>
+        </div>
+
+        {/* Featured Instagram Reel Video Banner */}
+        <div className="mb-16 gym-card rounded-3xl p-6 sm:p-8 border border-amberPrimary/40 shadow-glow-amber bg-gradient-to-r from-gymDark via-gymCard to-gymDark">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-purple-600/30 to-pink-600/30 border border-pink-500/40 text-pink-300 text-xs font-subheading font-bold uppercase tracking-wider">
+                <Instagram className="w-4 h-4 text-pink-400" />
+                <span>OFFICIAL INSTAGRAM REEL TOUR</span>
+              </div>
+
+              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase leading-tight">
+                EXPERIENCE THE REAL <span className="text-amberPrimary">POWERHOUSE GYM VIBE</span>
+              </h3>
+
+              <p className="font-body text-textMuted text-base leading-relaxed">
+                Step inside Bhadrachalam's premier 2,000 sq. ft. fitness hub! Watch our live workout floor, imported Maxfit machines, heavy power racks, and high-energy workout atmosphere in our official video reel.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href={reelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amberPrimary text-white font-subheading font-extrabold text-xs tracking-wider uppercase shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  <Play className="w-4 h-4 fill-white" />
+                  <span>Watch Video Reel on Instagram</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/power_house_gym_bhadrachalam?igsh=Znk3emoyeHc0dWs3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3.5 rounded-xl bg-gymDark border border-gymBorder hover:border-pink-500/50 text-white font-subheading font-bold text-xs flex items-center gap-2 transition-all"
+                >
+                  <Instagram className="w-4 h-4 text-pink-400" />
+                  <span>Follow @power_house_gym_bhadrachalam</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Video Embed Container */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-[340px] h-[520px] rounded-2xl overflow-hidden border-2 border-amberPrimary/50 bg-black shadow-2xl relative group">
+                <iframe
+                  src={reelEmbedUrl}
+                  title="POWERHOUSE GYM Bhadrachalam Instagram Reel Tour"
+                  className="w-full h-full border-0"
+                  allowTransparency={true}
+                  allow="encrypted-media"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
 
         {/* Category Filters */}
