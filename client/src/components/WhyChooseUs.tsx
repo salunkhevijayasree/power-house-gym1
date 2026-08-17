@@ -14,7 +14,7 @@ export const WhyChooseUs: React.FC = () => {
     {
       icon: Maximize2,
       title: 'Spacious & Uncrowded Floor',
-      subtitle: '2,000 Sq. Ft. Training Area',
+      subtitle: 'Spacious Training Floor',
       description:
         'Zero waiting time for machines. Enjoy an open-concept training floor with designated free-weight, cardio, and functional movement zones.',
       tag: 'OPTIMAL SPACE',

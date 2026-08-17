@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDashboard, onOpenAdmin }) 
                 POWER HOUSE <span className="text-amberPrimary">GYM</span>
               </span>
               <span className="text-[10px] tracking-widest uppercase font-subheading text-textMuted block -mt-1 font-semibold">
-                BHADRACHALAM • 2,000 SQ. FT.
+                BHADRACHALAM • TELANGANA
               </span>
             </div>
           </a>

@@ -57,7 +57,7 @@ export const TrialModal: React.FC = () => {
             </h3>
 
             <p className="font-body text-xs text-textMuted mb-6 leading-relaxed">
-              Experience Bhadrachalam's premier 2,000 sq. ft. gym with imported machinery and certified trainer guidance.
+              Experience Bhadrachalam's premier gym with imported machinery and certified trainer guidance.
             </p>
 
             {selectedPlanMessage && (

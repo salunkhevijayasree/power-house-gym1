@@ -10,7 +10,7 @@ export const Reviews: React.FC = () => {
       rating: 5,
       date: '2 weeks ago',
       comment:
-        'Best gym in Bhadrachalam by far! The 2,000 sq ft space feels massive and uncrowded. The imported bio-mechanical machines give incredible chest and back isolation. Certified trainers are always available to guide form.',
+        'Best gym in Bhadrachalam by far! The workout space feels massive and uncrowded. The imported bio-mechanical machines give incredible chest and back isolation. Certified trainers are always available to guide form.',
       badge: 'VERIFIED LOCAL MEMBER',
     },
     {

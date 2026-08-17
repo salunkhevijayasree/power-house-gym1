@@ -23,7 +23,7 @@ export const FAQ: React.FC = () => {
     {
       question: 'What programs and facilities are included?',
       answer:
-        'We feature Bodybuilding, Fat Loss, Personalized Diet Plans, Supplement Guidance, Aerobics, and imported premium equipment across our 2,000 sq. ft. A/C facility.',
+        'We feature Bodybuilding, Fat Loss, Personalized Diet Plans, Supplement Guidance, Aerobics, and imported premium equipment across our modern A/C facility.',
     },
   ];
 

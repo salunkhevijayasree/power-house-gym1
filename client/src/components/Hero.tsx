@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="font-body text-base sm:text-lg lg:text-xl text-textMuted max-w-2xl leading-relaxed mb-8">
-            Bhadrachalam's premier <strong className="text-white">2,000 sq. ft.</strong> fitness center featuring imported modern equipment, dedicated free-weight zones, and certified personal trainers.
+            Bhadrachalam's premier fitness center featuring imported modern equipment, dedicated free-weight zones, and certified personal trainers.
           </p>
 
           {/* Action CTAs */}
@@ -79,8 +79,8 @@ export const Hero: React.FC = () => {
                 <Flame className="w-5 h-5 text-amberPrimary" />
               </div>
               <div>
-                <div className="font-display text-lg font-bold text-white leading-none">2,000 Sq. Ft.</div>
-                <div className="text-xs text-textMuted font-medium">Spacious Floor Space</div>
+                <div className="font-display text-lg font-bold text-white leading-none">Spacious Floor</div>
+                <div className="text-xs text-textMuted font-medium font-subheading">A/C Gym Layout</div>
               </div>
             </div>
 

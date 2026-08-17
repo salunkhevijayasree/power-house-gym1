@@ -11,7 +11,7 @@ export const Gallery: React.FC = () => {
       title: 'Main Workout Floor & Free Weight Zone',
       category: 'strength',
       image: '/images/real_floor.jpg',
-      caption: 'Spacious 2,000 sq. ft. main training floor featuring incline bench stations, dumbbell racks, and warm gold LED backlighting.',
+      caption: 'Spacious main training floor featuring incline bench stations, dumbbell racks, and warm gold LED backlighting.',
     },
     {
       id: 2,
@@ -89,7 +89,7 @@ export const Gallery: React.FC = () => {
             INSIDE <span className="text-amberPrimary">POWER HOUSE GYM</span>
           </h2>
           <p className="font-body text-textMuted text-base sm:text-lg mt-3">
-            Explore 9 authentic photographs of our 2,000 sq. ft. modern facility on Charla Rd, Korrajula Gutta, Bhadrachalam.
+            Explore 9 authentic photographs of our modern facility on Charla Rd, Korrajula Gutta, Bhadrachalam.
           </p>
         </div>
 

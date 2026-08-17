@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs leading-relaxed text-textMuted">
-              Bhadrachalam's premier 2,000 sq. ft. fitness center featuring imported modern bio-mechanical equipment, certified trainers, bodybuilding & fat loss programs.
+              Bhadrachalam's premier fitness center featuring imported modern bio-mechanical equipment, certified trainers, bodybuilding & fat loss programs.
             </p>
             <div className="flex items-center gap-3">
               <a
