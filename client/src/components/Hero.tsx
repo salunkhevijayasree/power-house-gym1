@@ -1,9 +1,8 @@
 import React from 'react';
-import { Star, Flame, ShieldCheck, ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { Star, Flame, ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const { openTrialModal } = useAuth();
+  const phonePrimary = "9347539453";
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gymDark">
@@ -42,25 +41,24 @@ export const Hero: React.FC = () => {
             Bhadrachalam's premier <strong className="text-white">2,000 sq. ft.</strong> fitness center featuring imported modern equipment, dedicated free-weight zones, and certified personal trainers.
           </p>
 
-          {/* Dual CTAs */}
+          {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
-            <button
-              onClick={() => openTrialModal()}
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amberPrimary to-amber-600 font-subheading font-extrabold text-base text-white shadow-glow-amber hover:from-amber-600 hover:to-amberPrimary transition-all transform hover:-translate-y-1 active:translate-y-0"
-            >
-              <Sparkles className="w-5 h-5 text-goldSecondary" />
-              <span>CLAIM FREE TRIAL PASS</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
             <a
-              href="https://wa.me/919876543210?text=Hi%20Power%20House%20Gym!%20I%20want%20to%20inquire%20about%20membership%20and%20timings."
+              href={`https://wa.me/91${phonePrimary}?text=Hi%20Powerhouse%20Gym!%20I%20want%20to%20inquire%20about%20membership%20rates%20and%20timings.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gymCard border border-gymBorder hover:border-emerald-500 font-subheading font-bold text-base text-white hover:bg-emerald-950/30 transition-all transform hover:-translate-y-1 active:translate-y-0"
+              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-subheading font-extrabold text-base text-white shadow-lg transition-all transform hover:-translate-y-1 active:translate-y-0"
             >
-              <MessageCircle className="w-5 h-5 text-emerald-400" />
+              <MessageCircle className="w-5 h-5 fill-white text-emerald-600" />
               <span>WhatsApp Inquiry</span>
+            </a>
+
+            <a
+              href={`tel:+91${phonePrimary}`}
+              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amberPrimary to-amber-600 font-subheading font-extrabold text-base text-white shadow-glow-amber hover:from-amber-600 hover:to-amberPrimary transition-all transform hover:-translate-y-1 active:translate-y-0"
+            >
+              <Phone className="w-5 h-5" />
+              <span>Call Gym Desk (+91 {phonePrimary})</span>
             </a>
           </div>
 
