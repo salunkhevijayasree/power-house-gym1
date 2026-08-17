@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { Dumbbell, Activity, Scale, UserCheck, ArrowUpRight, CheckCircle2, X, Phone, Instagram, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { Dumbbell, Activity, Scale, UserCheck, CheckCircle2, Phone, Instagram, MessageCircle } from 'lucide-react';
 
 export const Programs: React.FC = () => {
-  const [selectedProgram, setSelectedProgram] = useState<any | null>(null);
-
   const coaches = [
     {
       role: 'Head Coach',
@@ -212,26 +210,13 @@ export const Programs: React.FC = () => {
                     {program.description}
                   </p>
 
-                  <div className="space-y-2 mb-6">
-                    {program.features.slice(0, 2).map((feat, idx) => (
+                  <div className="space-y-2">
+                    {program.features.map((feat, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs text-textPrimary">
                         <CheckCircle2 className="w-4 h-4 text-amberPrimary shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
-                  </div>
-
-                  <div className="pt-4 border-t border-gymBorder/40 flex items-center justify-between">
-                    <span className="text-xs text-goldSecondary font-subheading font-semibold">
-                      Coach Bablu & Trainer Likith
-                    </span>
-                    <button
-                      onClick={() => setSelectedProgram(program)}
-                      className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gymDark border border-gymBorder text-xs font-subheading font-bold text-white group-hover:border-amberPrimary group-hover:text-amberPrimary transition-all"
-                    >
-                      <span>Program & Coach Details</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </button>
                   </div>
                 </div>
               </div>
@@ -240,94 +225,6 @@ export const Programs: React.FC = () => {
         </div>
 
       </div>
-
-      {/* Program & Coach Details Modal */}
-      {selectedProgram && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-gymCard border border-gymBorder rounded-2xl max-w-xl w-full p-6 sm:p-8 relative overflow-hidden shadow-2xl animate-in fade-in zoom-in max-h-[90vh] overflow-y-auto">
-            <button
-              onClick={() => setSelectedProgram(null)}
-              className="absolute top-4 right-4 p-2 text-textMuted hover:text-white rounded-lg bg-gymDark"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-amberPrimary/20 border border-amberPrimary/40 flex items-center justify-center text-amberPrimary">
-                <selectedProgram.icon className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs text-amberPrimary font-subheading font-bold tracking-widest uppercase">
-                  {selectedProgram.badge}
-                </span>
-                <h3 className="font-display text-3xl font-extrabold text-white">
-                  {selectedProgram.title}
-                </h3>
-              </div>
-            </div>
-
-            <p className="font-body text-sm text-textMuted mb-6 leading-relaxed">
-              {selectedProgram.description}
-            </p>
-
-            <div className="bg-gymDark rounded-xl p-4 border border-gymBorder mb-6">
-              <h4 className="font-subheading text-xs font-bold text-white uppercase tracking-wider mb-3">
-                Included Equipment & Features:
-              </h4>
-              <div className="space-y-2">
-                {selectedProgram.features.map((feat: string, idx: number) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm text-textPrimary">
-                    <CheckCircle2 className="w-4 h-4 text-amberPrimary shrink-0" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Direct Coach Contact Section (Replaces Enroll Button) */}
-            <div className="bg-gymDark rounded-xl p-5 border border-amberPrimary/40 mb-2 space-y-4">
-              <h4 className="font-subheading text-xs font-extrabold text-amberPrimary uppercase tracking-wider flex items-center gap-2">
-                <UserCheck className="w-4 h-4" />
-                DIRECT COACH & TRAINER CONTACT
-              </h4>
-
-              <div className="space-y-3">
-                {coaches.map((c, idx) => (
-                  <div key={idx} className="bg-gymCard p-3.5 rounded-lg border border-gymBorder flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-subheading font-bold text-white text-sm">{c.name}</span>
-                        <span className="text-[10px] font-bold text-goldSecondary bg-gymDark px-2 py-0.5 rounded border border-gymBorder">{c.role}</span>
-                      </div>
-                      <div className="text-xs text-amberPrimary font-semibold mt-0.5">📞 {c.phoneFormatted}</div>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={`tel:+91${c.phone}`}
-                        className="px-3 py-1.5 rounded-lg bg-amberPrimary text-white text-xs font-bold shadow-glow-amber flex items-center gap-1"
-                      >
-                        <Phone className="w-3.5 h-3.5" />
-                        <span>Call</span>
-                      </a>
-                      <a
-                        href={c.instaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-600/40 to-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-bold flex items-center gap-1"
-                      >
-                        <Instagram className="w-3.5 h-3.5 text-pink-400" />
-                        <span>Instagram</span>
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
     </section>
   );
 };
