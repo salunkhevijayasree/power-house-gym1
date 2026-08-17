@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0C0D10;
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Glassmorphism & Card elevation */
+.gym-card {
+  background: #1A1D24;
+  border: 1px solid #2E3440;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gym-card:hover {
+  border-color: rgba(255, 107, 0, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(255, 107, 0, 0.25);
+}
+
+.gym-glow-text {
+  text-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(255, 107, 0, 0.15) 0%, rgba(12, 13, 16, 0.95) 70%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0D10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2E3440;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

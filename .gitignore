@@ -1,0 +1,17 @@
+# Node modules & Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build Outputs
+dist/
+client/dist/
+server/dist/
+
+# Logs & Environment Overrides
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
